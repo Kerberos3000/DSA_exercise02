@@ -9,6 +9,8 @@ public class SorterTest {
 	@Test
 	public void testSorter() {
 		SimpleList<Integer> list = new SimpleList<Integer>();
+		
+		// initialize list
 		list.append(5);
 		list.append(7);
 		list.append(100);
@@ -17,6 +19,11 @@ public class SorterTest {
 		list.append(45);
 		list.append(13);
 		
+		list.printList();
+		
+		
+		Sorter.selectionSort(list);
+		System.out.print("print sorted list:\n");
 		list.printList();
 		
 	assertTrue(true);
