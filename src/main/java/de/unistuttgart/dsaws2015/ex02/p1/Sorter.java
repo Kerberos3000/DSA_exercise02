@@ -1,7 +1,8 @@
 package de.unistuttgart.dsaws2015.ex02.p1;
 
 public class Sorter {
-	
+
+
 	public static <T extends Comparable<T>> void selectionSort(ISimpleList<T> list) {
 		int p = 0;
 		int indexSmallestElement;
@@ -38,7 +39,39 @@ public class Sorter {
 	}
 
 	public static <T extends Comparable<T>> void shakerSort(ISimpleList<T> list) {
-		// TODO
+		boolean swapFlag=true;
+		boolean bubbleUpwards=true;
+		
+			while(swapFlag) {
+
+				// next line only needed to verify shaker procedure
+				//((SimpleList) list).printList();
+
+				swapFlag=false;
+				if (bubbleUpwards == true) {
+					for(int i=0; i < list.size()-1; i++){
+
+						if (list.get(i).compareTo(list.get(i+1)) > 0) {
+							//next element is smaller as current element
+							list.swap(i, i+1);
+							swapFlag=true;
+						}
+					}
+					bubbleUpwards=false;
+				}
+				else {
+					for(int i=list.size()-1; i > 0; i--){
+
+						if (list.get(i).compareTo(list.get(i-1)) < 0) {
+							//next element is smaller as current element
+							list.swap(i, i-1);
+							swapFlag=true;
+						}
+					}
+					bubbleUpwards=true;
+
+				}
+		}
 	}
 
 }

@@ -26,7 +26,8 @@ public static final int LIST_SIZE = 25;
 		list.printList();
 
 		//Sorter.selectionSort(list);
-		Sorter.bubbleSort(list);
+		//Sorter.bubbleSort(list);
+		Sorter.shakerSort(list);
 		System.out.print("print sorted list:\n");
 		list.printList();
 		
