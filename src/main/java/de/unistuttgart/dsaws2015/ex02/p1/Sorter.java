@@ -21,7 +21,20 @@ public class Sorter {
 	}
 
 	public static <T extends Comparable<T>> void bubbleSort(ISimpleList<T> list) {
-		// TODO
+		boolean swapFlag=true;
+		while(swapFlag) {
+
+			swapFlag=false;
+			for(int i=0; i < list.size()-1; i++){
+
+				if (list.get(i).compareTo(list.get(i+1)) > 0) {
+					//next element is smaller as current element
+					list.swap(i, i+1);
+					swapFlag=true;
+				}
+
+			}
+		}
 	}
 
 	public static <T extends Comparable<T>> void shakerSort(ISimpleList<T> list) {
