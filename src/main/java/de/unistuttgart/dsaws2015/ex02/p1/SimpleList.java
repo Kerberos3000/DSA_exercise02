@@ -31,5 +31,11 @@ public class SimpleList<T extends Comparable<T>> implements ISimpleList<T> {
 		list.set(i, list.get(j));
 		list.set(j, tmp);
 	}
+	
+	public void printList() {
+		for(int i=0; i < this.size(); i++){
+				System.out.print("list[" +i +"] = "+list.get(i)+"\n");
+		}
+	}
 
 }

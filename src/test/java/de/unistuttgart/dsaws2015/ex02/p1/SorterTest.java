@@ -8,7 +8,18 @@ public class SorterTest {
 	
 	@Test
 	public void testSorter() {
-		assertTrue(true);
+		SimpleList<Integer> list = new SimpleList<Integer>();
+		list.append(5);
+		list.append(7);
+		list.append(100);
+		list.append(1);
+		list.append(25);
+		list.append(45);
+		list.append(13);
+		
+		list.printList();
+		
+	assertTrue(true);
 	}
 
 }
