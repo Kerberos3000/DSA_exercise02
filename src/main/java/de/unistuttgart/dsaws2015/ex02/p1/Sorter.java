@@ -23,18 +23,21 @@ public class Sorter {
 
 	public static <T extends Comparable<T>> void bubbleSort(ISimpleList<T> list) {
 		boolean swapFlag=true;
-		while(swapFlag) {
-
+		// while(swapFlag) {
+		for (int j = 0; j < list.size(); j++ )
+		{
 			swapFlag=false;
-			for(int i=0; i < list.size()-1; i++){
+			for(int i=0; i < list.size()-1-j; i++) 
+			{
 
-				if (list.get(i).compareTo(list.get(i+1)) > 0) {
+				if (list.get(i).compareTo(list.get(i+1)) > 0) 
+				{
 					//next element is smaller as current element
 					list.swap(i, i+1);
 					swapFlag=true;
 				}
-
 			}
+			if (!swapFlag) break; // finish earlier, because list is sorted !
 		}
 	}
 
@@ -42,35 +45,34 @@ public class Sorter {
 		boolean swapFlag=true;
 		boolean bubbleUpwards=true;
 		
-			while(swapFlag) {
+		int ucount = 0;
+		int vcount = 0;
+		while(swapFlag) {
+			swapFlag=false;
+			if (bubbleUpwards == true) {
+				for(int i=0; i < list.size()-1-ucount; i++){
 
-				// next line only needed to verify shaker procedure
-				//((SimpleList) list).printList();
-
-				swapFlag=false;
-				if (bubbleUpwards == true) {
-					for(int i=0; i < list.size()-1; i++){
-
-						if (list.get(i).compareTo(list.get(i+1)) > 0) {
-							//next element is smaller as current element
-							list.swap(i, i+1);
-							swapFlag=true;
-						}
+					if (list.get(i).compareTo(list.get(i+1)) > 0) {
+						//next element is smaller as current element
+						list.swap(i, i+1);
+						swapFlag=true;
 					}
-					bubbleUpwards=false;
 				}
-				else {
-					for(int i=list.size()-1; i > 0; i--){
+				ucount++;
+				bubbleUpwards=false;
+			}
+			else {
+				for(int i=list.size()-1-vcount; i > 0; i--){
 
-						if (list.get(i).compareTo(list.get(i-1)) < 0) {
-							//next element is smaller as current element
-							list.swap(i, i-1);
-							swapFlag=true;
-						}
+					if (list.get(i).compareTo(list.get(i-1)) < 0) {
+						//next element is smaller as current element
+						list.swap(i, i-1);
+						swapFlag=true;
 					}
-					bubbleUpwards=true;
-
 				}
+				vcount++;
+				bubbleUpwards=true;
+			}
 		}
 	}
 
