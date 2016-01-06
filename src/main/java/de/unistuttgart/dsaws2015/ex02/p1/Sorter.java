@@ -75,5 +75,47 @@ public class Sorter {
 			}
 		}
 	}
+	public static <T extends Comparable<T>> void heapSort(ISimpleList<T> list) {
+		// see lecture notes 08, page 40
+		int i;
+		//create heap
+		for (i = list.size()/2; i>=0; i--){
+			sift(list,i,list.size());
+		}
+		
+		// heapsort
+		for (i = list.size()-1; i>0; i--) {
+			//swap last element with the first
+			list.swap(0, i);
+			//create heap with length i from element 0
+			sift(list,0,i);
+			
+		}
+		
+		
+		}
+	private static <T extends Comparable<T>> void sift(ISimpleList<T> list, int idx, int size) {
+		int parent = idx,child;
+		while ((2*parent)+1 < size) {
+			child = (2*parent)+1;	// set left child as biggest child
 
-}
+			//compare both children
+			if ((child+1) < size) { //list[i] has right child as well
+				if (list.get(child).compareTo(list.get(child+1)) < 0) {
+					child++; //set right child as biggest child
+				}	
+			}
+			//compare biggest child with parent
+			if (list.get(parent).compareTo(list.get(child)) < 0){
+				list.swap(parent, child); 
+				parent=child;
+			}
+			else {
+				break;
+			}
+		}
+	}
+}	
+
+
+

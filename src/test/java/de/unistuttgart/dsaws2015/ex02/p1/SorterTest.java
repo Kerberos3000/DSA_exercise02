@@ -24,10 +24,12 @@ public static final int LIST_SIZE = 25;
 	
 		System.out.print("print random list:\n");
 		list.printList();
+		
 
 		//Sorter.selectionSort(list);
 		//Sorter.bubbleSort(list);
-		Sorter.shakerSort(list);
+//		Sorter.shakerSort(list);
+		Sorter.heapSort(list);
 		System.out.print("print sorted list:\n");
 		list.printList();
 		
